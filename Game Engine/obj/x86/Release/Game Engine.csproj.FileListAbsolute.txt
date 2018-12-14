@@ -1,0 +1,50 @@
+C:\Users\Jacob\source\repos\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\Game Engine.dll
+C:\Users\Jacob\source\repos\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\Game Engine.pdb
+C:\Users\Jacob\source\repos\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\MonoGame.Framework.dll
+C:\Users\Jacob\source\repos\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.MediaFoundation.dll
+C:\Users\Jacob\source\repos\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.dll
+C:\Users\Jacob\source\repos\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.XAudio2.dll
+C:\Users\Jacob\source\repos\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.DXGI.dll
+C:\Users\Jacob\source\repos\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.Direct3D11.dll
+C:\Users\Jacob\source\repos\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.Direct2D1.dll
+C:\Users\Jacob\source\repos\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.XInput.dll
+C:\Users\Jacob\source\repos\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.Direct3D9.dll
+C:\Users\Jacob\source\repos\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\MonoGame.Framework.xml
+C:\Users\Jacob\source\repos\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.MediaFoundation.xml
+C:\Users\Jacob\source\repos\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.xml
+C:\Users\Jacob\source\repos\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.XAudio2.xml
+C:\Users\Jacob\source\repos\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.DXGI.xml
+C:\Users\Jacob\source\repos\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.Direct3D11.xml
+C:\Users\Jacob\source\repos\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.Direct2D1.xml
+C:\Users\Jacob\source\repos\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.XInput.xml
+C:\Users\Jacob\source\repos\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.Direct3D9.xml
+C:\Users\Jacob\source\repos\CPI311Fall2018\Game Engine\obj\x86\Release\Game Engine.csprojAssemblyReference.cache
+C:\Users\Jacob\source\repos\CPI311Fall2018\Game Engine\obj\x86\Release\Game Engine.csproj.CoreCompileInputs.cache
+C:\Users\Jacob\source\repos\CPI311Fall2018\Game Engine\obj\x86\Release\Game Engine.csproj.CopyComplete
+C:\Users\Jacob\source\repos\CPI311Fall2018\Game Engine\obj\x86\Release\Game Engine.dll
+C:\Users\Jacob\source\repos\CPI311Fall2018\Game Engine\obj\x86\Release\Game Engine.pdb
+C:\dev\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\Game Engine.dll
+C:\dev\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\Game Engine.pdb
+C:\dev\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\MonoGame.Framework.dll
+C:\dev\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.MediaFoundation.dll
+C:\dev\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.dll
+C:\dev\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.XAudio2.dll
+C:\dev\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.DXGI.dll
+C:\dev\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.Direct3D11.dll
+C:\dev\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.Direct2D1.dll
+C:\dev\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.XInput.dll
+C:\dev\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.Direct3D9.dll
+C:\dev\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\MonoGame.Framework.xml
+C:\dev\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.MediaFoundation.xml
+C:\dev\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.xml
+C:\dev\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.XAudio2.xml
+C:\dev\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.DXGI.xml
+C:\dev\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.Direct3D11.xml
+C:\dev\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.Direct2D1.xml
+C:\dev\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.XInput.xml
+C:\dev\CPI311Fall2018\Game Engine\bin\Windows\x86\Release\SharpDX.Direct3D9.xml
+C:\dev\CPI311Fall2018\Game Engine\obj\x86\Release\Game Engine.csprojAssemblyReference.cache
+C:\dev\CPI311Fall2018\Game Engine\obj\x86\Release\Game Engine.csproj.CoreCompileInputs.cache
+C:\dev\CPI311Fall2018\Game Engine\obj\x86\Release\Game Engine.csproj.CopyComplete
+C:\dev\CPI311Fall2018\Game Engine\obj\x86\Release\Game Engine.dll
+C:\dev\CPI311Fall2018\Game Engine\obj\x86\Release\Game Engine.pdb

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/dev/peak-pulse-power/Final/Content/virtualTerrain.fx</File>
+    <File>C:/dev/peak-pulse-power/Final/Content/wire.png</File>
+    <File>C:/dev/peak-pulse-power/Final/Content/blank.png</File>
+    <File>C:/dev/peak-pulse-power/Final/Content/menufont.spritefont</File>
+    <File>C:/dev/peak-pulse-power/Final/Content/hoop.fx</File>
+    <File>C:/dev/peak-pulse-power/Final/Content/test.png</File>
+    <File>C:/dev/peak-pulse-power/Final/Content/DOGGIE.png</File>
+    <File>C:/dev/peak-pulse-power/Final/Content/offset.fx</File>
+    <File>C:/dev/peak-pulse-power/Final/Content/postProcess.fx</File>
+    <File>C:/dev/peak-pulse-power/Final/Content/back.png</File>
+    <File>C:/dev/peak-pulse-power/Final/Content/Box.fbx</File>
+    <File>C:/dev/peak-pulse-power/Final/Content/skybox.fx</File>
+    <File>C:/dev/peak-pulse-power/Final/Content/static.mp3</File>
+  </SourceFiles>
+</SourceFileCollection>
