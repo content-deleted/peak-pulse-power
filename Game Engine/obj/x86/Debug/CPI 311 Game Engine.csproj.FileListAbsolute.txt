@@ -1,0 +1,7 @@
+C:\dev\peak-pulse-power\Game Engine\obj\x86\Debug\CPI 311 Game Engine.csprojAssemblyReference.cache
+C:\dev\peak-pulse-power\Game Engine\obj\x86\Debug\CPI 311 Game Engine.csproj.CoreCompileInputs.cache
+C:\dev\peak-pulse-power\Game Engine\obj\x86\Debug\Game Engine.dll
+C:\dev\peak-pulse-power\Game Engine\obj\x86\Debug\Game Engine.pdb
+C:\dev\peak-pulse-power\Build\Game Engine.dll
+C:\dev\peak-pulse-power\Build\Game Engine.pdb
+C:\dev\peak-pulse-power\Game Engine\obj\x86\Debug\CPI 311 Game Engine.csproj.CopyComplete

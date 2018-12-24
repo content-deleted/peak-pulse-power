@@ -1,13 +1,4 @@
-﻿/*#if OPENGL
-	#define SV_POSITION POSITION
-	#define VS_SHADERMODEL vs_3_0
-	#define PS_SHADERMODEL ps_3_0
-#else
-	#define VS_SHADERMODEL vs_4_0_level_9_3 
-	#define PS_SHADERMODEL ps_4_0_level_9_3 
-#endif
-*/
-float3 CameraPosition; // in world space
+﻿float3 CameraPosition; // in world space
 float4x4 World; // World Matrix
 float4x4 View; // View Matrix
 float4x4 Projection; // Projection Matrix
@@ -74,7 +65,7 @@ float4 MainPS(VertexShaderOutput input) : COLOR
     //edge = clamp(edge, 0.01, 1);
     clip(dist - 0.05); 
     clip(input.normalClipCheck); // flag for verticies attached at draw edges
-    clip(input.WorldPosition.z - (CameraPosition.z - 5) ); // dont bother with anything behind
+    //clip(input.WorldPosition.z - (CameraPosition.z - 5) ); // dont bother with anything behind
 
     float3 altColor = float3(0.6, 0 , 0.6);
 

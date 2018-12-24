@@ -240,12 +240,18 @@ namespace Final {
             Vector3 cameraPosition = new Vector3(100,0 , camera.Transform.LocalPosition.Z);
             cameraPosition.Y = 5 + terrainRenderer.GetAltitude(cameraPosition);
             camera.Transform.LocalPosition = cameraPosition;
+
             noisyToggle = false;
+
+            // Reset speed effects
             camera.FieldOfView = 1;
             hoopLogic.MaxSpeed = hoopLogic.lowMaxSpeed; 
             cameraCurrectVelocity = Vector3.Zero;
+            curSpeed = camForwardSpeed;
             curUpDown = 0;
             curLeftRight = 0;
+
+            // Start song again
             MediaPlayer.Stop();
             waveOut.Play();
         }
@@ -256,6 +262,7 @@ namespace Final {
         public const float leftRightSpeed = 0.065f;
         public const float upDownSpeed = 0.04f;
 
+        public float curSpeed = camForwardSpeed;
         public float curUpDown = 0;
         public float curLeftRight = 0;
         
@@ -298,7 +305,7 @@ namespace Final {
 
             cameraCurrectVelocity.Y = MathHelper.Clamp( cameraCurrectVelocity.Y, -0.12f, 0.12f);
             cameraCurrectVelocity.X = MathHelper.Clamp(cameraCurrectVelocity.X, -0.2f, 0.2f);
-            cameraCurrectVelocity.Z = (camForwardSpeed) * Time.ElapsedGameTime + cameraCurrectVelocity.Y / 5;
+            cameraCurrectVelocity.Z = (curSpeed) * Time.ElapsedGameTime + cameraCurrectVelocity.Y / 5;
             
             camera.Transform.lookAt(camera.Transform.LocalPosition + cameraCurrectVelocity);
             camera.Transform.LocalPosition += cameraCurrectVelocity;
@@ -318,16 +325,6 @@ namespace Final {
             ScreenManager.GraphicsDevice.Clear(Color.Purple);
 
             camera.drawSkybox(GameScreenManager.GraphicsDevice);
-           
-            postProcess.Parameters["toggle"].SetValue(postToggle);
-            postProcess.Parameters["noisy"].SetValue(noisyToggle);
-            if(songStarted) postProcess.Parameters["time"].SetValue(t += 0.02f );
-
-            // For some reason this is not fading
-            double timeRemainingSeconds = reader.Length - waveOut.GetPosition();
-            if (timeRemainingSeconds < 500000) {
-                postProcess.Parameters["darkenFactor"].SetValue((float)timeRemainingSeconds / 500000);
-            }
 
             foreach (GameObject3d gameObject in GameObject3d.activeGameObjects.ToList())
                 gameObject.Render(Tuple.Create(camera, GameScreenManager.GraphicsDevice));
@@ -337,8 +334,16 @@ namespace Final {
 
             // Handle post processing effects
             using (SpriteBatch sprite = new SpriteBatch(ScreenManager.GraphicsDevice)) {
-                //sprite.Begin();
-                
+
+                postProcess.Parameters["toggle"].SetValue(postToggle);
+                postProcess.Parameters["noisy"].SetValue(noisyToggle);
+                if (songStarted) postProcess.Parameters["time"].SetValue(t += 0.02f);
+
+                double timeRemainingSeconds = reader.Length - waveOut.GetPosition();
+                if (timeRemainingSeconds < 500000) {
+                    postProcess.Parameters["darkenFactor"].SetValue((float)timeRemainingSeconds / 500000);
+                }
+
                 sprite.Begin(SpriteSortMode.Deferred, null, null, null, null, postProcess);
 
                 sprite.Draw(renderTarget, new Rectangle(ScreenManager.GraphicsDevice.Viewport.X, ScreenManager.GraphicsDevice.Viewport.Y, ScreenManager.GraphicsDevice.Viewport.Width, ScreenManager.GraphicsDevice.Viewport.Height), Color.White);
