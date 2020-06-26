@@ -43,6 +43,8 @@ namespace Final {
         Texture2D test;
         Texture2D background;
 
+        SpriteFont HUDfont;
+
         byte[] avgE;
 
         public Gameplay(SongSelect.songInfo s, PlayerIndex controllerIndex) {
@@ -131,6 +133,9 @@ namespace Final {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GameScreenManager.GraphicsDevice);
             background = content.Load<Texture2D>("back");
+
+            // Load the hudfont
+            HUDfont = content.Load<SpriteFont>("menufont");
 
             // Setting up render target
             PresentationParameters pp = ScreenManager.GraphicsDevice.PresentationParameters;
@@ -349,6 +354,9 @@ namespace Final {
                 sprite.Draw(renderTarget, new Rectangle(ScreenManager.GraphicsDevice.Viewport.X, ScreenManager.GraphicsDevice.Viewport.Y, ScreenManager.GraphicsDevice.Viewport.Width, ScreenManager.GraphicsDevice.Viewport.Height), Color.White);
                 sprite.End();
             }
+
+            // Draw the Hud over everything else
+            HUD.Draw(gameTime, HUDfont);
 
             //THIS IS THE TESTING CODE FOR DRAWING SOUND
             /*

@@ -42,6 +42,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="HUD.cs" />
     <Compile Include="demoScreen.cs" />
     <Compile Include="GamePlay.cs" />
     <Compile Include="hoopControl.cs" />

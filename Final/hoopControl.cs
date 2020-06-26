@@ -36,9 +36,9 @@ namespace Final {
     public class hoopLogic : Behavior3d {
         public static Camera player;
         public const float lowMaxSpeed = 1.75f;
-        public static float MaxSpeed = lowMaxSpeed;
+        public static float MaxFOV = lowMaxSpeed;
         public static void cameraSpeedCoroutineInc () {
-            if (player.FieldOfView < MaxSpeed) {
+            if (player.FieldOfView < MaxFOV) {
                 player.FieldOfView *= 1.05f;
                 Time.timers.Add(new EventTimer(cameraSpeedCoroutineInc, 0));
             }
@@ -61,7 +61,7 @@ namespace Final {
 
                 // if we're through then activate 
                 if(!active && (int)transform.LocalPosition.Z == (int)player.Transform.LocalPosition.Z && Vector3.Distance(transform.LocalPosition, player.Transform.LocalPosition) < 5) {
-                    MaxSpeed += 0.1f;
+                    MaxFOV += 0.1f;
                     
                     active = true;
                     Time.timers.Add(new EventTimer(cameraSpeedCoroutineInc, 0) );
