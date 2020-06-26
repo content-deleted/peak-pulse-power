@@ -30,7 +30,8 @@ namespace Final {
         public void getNextHoopPos () {
             float xOffset = -(lastPos.X - 100)/2; // should normalize around the center
             Vector3 nextPos = lastPos + new Vector3(ran.Next(-25, 25) + xOffset, ran.Next(-8, 5) + (float)Math.Pow(MathHelper.Clamp(-(lastPos.Y - 23), 0, 5) , 2), +80);
-            if (nextPos.Y < 20) nextPos.Y = 20;
+            float terrainHeight = CustomTerrainRenderer.GetHeight(nextPos.X, nextPos.Z);
+            if (nextPos.Y < terrainHeight) nextPos.Y = terrainHeight;
             transform.LocalPosition = nextPos;
             lastPos = transform.LocalPosition;
         }

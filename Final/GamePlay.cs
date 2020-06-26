@@ -250,7 +250,7 @@ namespace Final {
 
             // Reset speed effects
             camera.FieldOfView = 1;
-            hoopLogic.MaxSpeed = hoopLogic.lowMaxSpeed; 
+            hoopLogic.MaxFOV = hoopLogic.lowMaxSpeed; 
             cameraCurrectVelocity = Vector3.Zero;
             curSpeed = camForwardSpeed;
             curUpDown = 0;
@@ -356,7 +356,7 @@ namespace Final {
             }
 
             // Draw the Hud over everything else
-            HUD.Draw(gameTime, HUDfont);
+            HUD.Draw(gameTime, HUDfont, 0);
 
             //THIS IS THE TESTING CODE FOR DRAWING SOUND
             /*
