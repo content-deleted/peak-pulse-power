@@ -19,7 +19,7 @@ namespace Final {
             graphics = new GraphicsDeviceManager(this);
             graphics.PreparingDeviceSettings += new EventHandler<PreparingDeviceSettingsEventArgs>(graphics_PreparingDeviceSettings);
             CPI311.GameEngine.GameScreenManager.Initialize(graphics);
-            CPI311.GameEngine.GameScreenManager.Setup(true, 1920, 1080);
+            CPI311.GameEngine.GameScreenManager.Setup(false, 1920, 1080);
             graphics.GraphicsProfile = GraphicsProfile.HiDef;
             //graphics.PreferredBackBufferWidth = 1280;
             //graphics.PreferredBackBufferHeight = 720;

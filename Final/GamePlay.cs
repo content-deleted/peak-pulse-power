@@ -142,7 +142,7 @@ namespace Final {
             CustomTerrainRenderer.wire = content.Load<Texture2D>("wire");
             CustomTerrainRenderer.effect = virtualTerrain;
 
-            terrainRenderer = new CustomTerrainRenderer(Vector2.One * 200);
+            terrainRenderer = new CustomTerrainRenderer(Vector2.One*300);
 
             terrainObject = GameObject3d.Initialize();
             terrainRenderer.obj = terrainObject;

@@ -25,12 +25,8 @@ namespace Final {
             MenuEntries.Add(startGame);
         }
 
-        void StartGameSelected(object sender, PlayerIndexEventArgs e) {
-            //ScreenManager.AddScreen(new Gameplay(), null);
-            ScreenManager.AddScreen(new SongSelect(), null);
-            //ScreenManager.GetScreens().First().ExitScreen();
-            //this.ExitScreen();
-        }
+        void StartGameSelected(object sender, PlayerIndexEventArgs e) 
+            => ScreenManager.AddScreen(new SongSelect(), null);
 
         public void initDemo () {
 
@@ -39,8 +35,13 @@ namespace Final {
             if (content == null)
                 content = new ContentManager(ScreenManager.Game.Services, "Content");
 
+            // Skybox
+            camera.skybox = new Skybox { skyboxModel = content.Load<Model>("Box"), skyboxTexture = content.Load<Texture2D>("back") };
+            Skybox.shader = content.Load<Effect>("skybox");
+
             Vector3 pos = camera.Transform.Position;
             camera.Transform.LocalPosition = pos;
+            camera.NearPlane = 0.001f;
 
             Hoop.effect = content.Load<Effect>("hoop");
 
@@ -60,6 +61,9 @@ namespace Final {
 
         public override void Draw(GameTime gameTime) {
             if(IsExiting) ScreenManager.Game.Exit();
+            
+            camera.drawSkybox(GameScreenManager.GraphicsDevice);
+
             camera.Transform.LocalPosition += camera.Transform.Forward;
             foreach (GameObject3d h in hoop) {
                 if (camera.Transform.LocalPosition.Z < h.transform.LocalPosition.Z) h.transform.LocalPosition = new Vector3(0, 0, camera.Transform.LocalPosition.Z-200);
