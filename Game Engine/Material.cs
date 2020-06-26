@@ -177,9 +177,9 @@ namespace CPI311.GameEngine {
         private int[] Indices { get; set; }
         private float[] heights { get; set; }
 
-        private int rows, cols;
+        private static int rows, cols;
 
-        private Perlin noise = new Perlin();
+        private static Perlin noise = new Perlin();
 
         public GameObject3d obj;
         public int lastRowDepth;
@@ -208,7 +208,7 @@ namespace CPI311.GameEngine {
             Vertices = new VertexPositionNormalTexture[rows * cols];
 
             for (int r = 0; r < rows; r++) {
-                if (r > 120) heightAlter = 1; //THIS IS TO BUFFER WITH SOME FLAT GROUND AT THE START
+                if (r > flatBuffer) heightAlter = 1; //THIS IS TO BUFFER WITH SOME FLAT GROUND AT THE START
                 for (int c = 0; c < cols; c++)
                     Vertices[r * cols + c] = new VertexPositionNormalTexture(
                         new Vector3(c, GetHeight(c, r), r),
@@ -247,8 +247,27 @@ namespace CPI311.GameEngine {
 
             return Vector3.Normalize(Vector3.Cross(ab, bc) + Vector3.Cross(bc, ca) + Vector3.Cross(ca, ab));
         }
-        public float GetHeight(double x, double y) {
-            return (heightAlter < 1) ? 22 : 0 + heightAlter * (float)noise.OctavePerlin(10f * x / (float)rows, 10f * y / (float)cols, 0.5f, 2, 6) *10;
+
+        const int flatBuffer = 120; // Represents the y distance before the start of the song
+        const int minimumTerrainHeight = 22;
+        const float canyonEdgePercent = 0.66f; // What percentage of the field is not the rising edge of the canyon
+        const float canyonIncline = 27; // how steep
+        public static float GetHeight(double x, double y) {
+            double halfRows = rows / 2.0;
+            double canyonEdge = (Math.Max(Math.Abs(halfRows - x) / halfRows, canyonEdgePercent) - canyonEdgePercent) * canyonIncline;
+
+            // start with a canyon to obscure the players view of the terrain edges
+            float canyonShape = (float)(canyonEdge * canyonEdge);
+            // generate a base terrain level for smooth valleys
+            float baseHeight = (float)(100 * noise.OctavePerlin(x / (float)rows, y / (float)cols, 0.5f, 2, 7)) - 225;
+            // base scaler
+            float baseScaler = (float) Math.Min((y - flatBuffer) / 10, baseHeight);
+            if (y < flatBuffer) {
+                return minimumTerrainHeight;
+            } else {
+                // bruh i have no idea
+                return baseScaler + (float)noise.OctavePerlin(10f * x / (float)rows, 10f * y / (float)cols, 0.5f, 2, 6) * 10;
+            }
         }
 
         public float heightAlter = 0;
