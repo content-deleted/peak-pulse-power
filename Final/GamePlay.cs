@@ -23,6 +23,8 @@ using Microsoft.Xna.Framework.Media;
 namespace Final {
 
     public class Gameplay : GameScreen {
+        const int terrainSize = 300; // This controls the overall size of (displayed) terrain including culling
+
         PlayerIndex ControllingPlayer;
         SpriteBatch spriteBatch;
         public RenderTarget2D renderTarget;
@@ -147,7 +149,7 @@ namespace Final {
             CustomTerrainRenderer.wire = content.Load<Texture2D>("wire");
             CustomTerrainRenderer.effect = virtualTerrain;
 
-            terrainRenderer = new CustomTerrainRenderer(Vector2.One*300);
+            terrainRenderer = new CustomTerrainRenderer(Vector2.One*terrainSize);
 
             terrainObject = GameObject3d.Initialize();
             terrainRenderer.obj = terrainObject;
@@ -156,7 +158,7 @@ namespace Final {
 
             //SET CAM
             camera = new Camera();
-            camera.Transform.LocalPosition += new Vector3(100, 0, 10);
+            camera.Transform.LocalPosition += new Vector3(terrainSize/2, 0, 10);
             camera.Transform.Rotate(Vector3.Up, (float)Math.PI);
             Vector3 pos = camera.Transform.Position;
             pos.Y = 2 + terrainRenderer.GetAltitude(camera.Transform.Position);
@@ -270,6 +272,10 @@ namespace Final {
         public float curSpeed = camForwardSpeed;
         public float curUpDown = 0;
         public float curLeftRight = 0;
+
+        // Scoring stuff oh god this is a fucking mess
+        public int score;
+        public int grazeTimer;
         
         public void updateCam() {
             if (songStarted && t > 2) {
@@ -283,6 +289,11 @@ namespace Final {
                 }
                 else if (2 + height > camera.Transform.Position.Y) {
                     // graze
+                    score += grazeTimer;
+                    grazeTimer++;
+
+                } else {
+                    grazeTimer = 0;
                 }
             }
             else
@@ -356,7 +367,7 @@ namespace Final {
             }
 
             // Draw the Hud over everything else
-            HUD.Draw(gameTime, HUDfont, 0);
+            HUD.Draw(gameTime, HUDfont, score);
 
             //THIS IS THE TESTING CODE FOR DRAWING SOUND
             /*
