@@ -71,7 +71,7 @@ namespace Final {
             spriteBatch.End();
         }
 
-        const int scoreItemLifetime = 120;
+        const int scoreItemLifetime = 220;
         const int halfItemLifetime = scoreItemLifetime / 2;
 
         public static void UpdateHud() {

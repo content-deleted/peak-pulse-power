@@ -53,6 +53,7 @@ namespace Final {
                 player.FieldOfView = 1;
         }
         bool active = false;
+        public static int succesfulHoops = 0;
         public override void Update() {
             base.Update();
 
@@ -61,6 +62,12 @@ namespace Final {
 
                 // if we're through then activate 
                 if(!active && (int)transform.LocalPosition.Z == (int)player.Transform.LocalPosition.Z && Vector3.Distance(transform.LocalPosition, player.Transform.LocalPosition) < 5) {
+                    succesfulHoops += 1;
+                    // add a score indicator
+                    HUD.scoreIndicators.Add(new HUD.ScoreItem("Boost: ", 100));
+                    if(succesfulHoops > 1)
+                        HUD.scoreIndicators.Add(new HUD.ScoreItem("Multiboost: ", 100 * succesfulHoops * succesfulHoops));
+
                     MaxFOV += 0.1f;
                     
                     active = true;
@@ -73,6 +80,8 @@ namespace Final {
                     if (!active) {
                         //MaxSpeed = lowMaxSpeed;
                         Time.timers.Add(new EventTimer(cameraSpeedCoroutineDec, 0));
+                        // reset counter
+                        succesfulHoops = 0;
                     }
 
                     // Either way
