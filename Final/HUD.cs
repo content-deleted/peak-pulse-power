@@ -40,7 +40,7 @@ namespace Final {
             UpdateGraze();
             SpriteBatch spriteBatch = new SpriteBatch(GameScreenManager.GraphicsDevice);
 
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.NonPremultiplied);
 
             // Draw the overall score in the corner
             string score = totalScore.ToString();
@@ -52,8 +52,12 @@ namespace Final {
             // Draw the itemized list of score indicators
             for(int i = 0; i < scoreIndicators.Count(); i++) {
                 var item = scoreIndicators[i];
-                Vector2 itemPos = new Vector2(GameScreenManager.Width * 0.8f, GameScreenManager.Height * (0.3f + i * 0.1f) );
-                Color transparancy = new Color(Color.White, 1 - (item.time / (2 * scoreItemLifeTime)));
+                float itemLife = (item.time / (float)scoreItemLifetime);
+                // slide the indicator in and out
+                float slide = (Math.Max(Math.Abs(halfItemLifetime - item.time) / (float)halfItemLifetime, 0.66f) - 0.66f) * 0.2f;
+                // fade the indicator over time
+                Vector2 itemPos = new Vector2(GameScreenManager.Width * (0.8f + slide), GameScreenManager.Height * (0.3f + i * 0.05f) );
+                Color transparancy = new Color(Color.White, 1f - itemLife);
                 spriteBatch.DrawString(font, item.getMsg(), itemPos, transparancy);
             }
 
@@ -61,17 +65,18 @@ namespace Final {
             if (grazeTimer < grazeLoss) {
                 Vector2 grazePos = new Vector2(GameScreenManager.Width * 0.75f, GameScreenManager.Height * 0.12f);
                 float grazeRotation = 0.5f * (float)Math.Cos(gameTime.TotalGameTime.TotalSeconds * 2);
-                float grazeScale = 0.5f + ((grazeLoss - grazeTimer) / grazeLoss) * 1.5f + 0.1f * (float)Math.Sin(gameTime.TotalGameTime.TotalSeconds * 2);
+                float grazeScale = 0.5f + ((grazeLoss - grazeTimer) / (float)grazeLoss) * 1.5f + 0.1f * (float)Math.Sin(gameTime.TotalGameTime.TotalSeconds * 2);
                 spriteBatch.DrawString(spriteFont: font, text: "GRAZE ~ " + grazeCount + " ~", position: grazePos, color: Color.White, rotation: grazeRotation, origin: new Vector2(60, 0), scale: grazeScale, effects: SpriteEffects.None, layerDepth: 0);
             }
             spriteBatch.End();
         }
 
-        const int scoreItemLifeTime = 60;
+        const int scoreItemLifetime = 120;
+        const int halfItemLifetime = scoreItemLifetime / 2;
 
         public static void UpdateHud() {
             scoreIndicators.ForEach(s => s.time++);
-            scoreIndicators.RemoveAll(s => s.time >= scoreItemLifeTime);
+            scoreIndicators.RemoveAll(s => s.time >= scoreItemLifetime);
         }
 
         public static void UpdateGraze() {
