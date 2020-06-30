@@ -273,9 +273,7 @@ namespace Final {
         public float curUpDown = 0;
         public float curLeftRight = 0;
 
-        // Scoring stuff oh god this is a fucking mess
-        public int score;
-        public int grazeTimer;
+       
         
         public void updateCam() {
             if (songStarted && t > 2) {
@@ -289,11 +287,11 @@ namespace Final {
                 }
                 else if (2 + height > camera.Transform.Position.Y) {
                     // graze
-                    score += grazeTimer;
-                    grazeTimer++;
+                    HUD.grazeCount++;
+                    HUD.grazeTimer = 0;
 
                 } else {
-                    grazeTimer = 0;
+                    HUD.grazeTimer++;
                 }
             }
             else
@@ -367,7 +365,7 @@ namespace Final {
             }
 
             // Draw the Hud over everything else
-            HUD.Draw(gameTime, HUDfont, score);
+            HUD.Draw(gameTime, HUDfont);
 
             //THIS IS THE TESTING CODE FOR DRAWING SOUND
             /*
